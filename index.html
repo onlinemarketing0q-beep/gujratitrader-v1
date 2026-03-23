@@ -1,1 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEEPAK WADHWA™</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+body{
+    background:radial-gradient(circle at top,#111,#000);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    color:#fff;
+}
+
+/* GOLD BORDER */
+.wrapper{
+    padding:2px;
+    border-radius:28px;
+    background:linear-gradient(120deg,#f5c400,#fff1a8,#f5c400);
+    background-size:300% 300%;
+    animation:borderMove 4s linear infinite;
+}
+@keyframes borderMove{
+    0%{background-position:0% 50%}
+    100%{background-position:100% 50%}
+}
+
+/* MAIN CARD */
+.container{
+    max-width:420px;
+    width:100%;
+    background:linear-gradient(180deg,#151515,#0a0a0a);
+    border-radius:26px;
+    padding:30px 22px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.9);
+}
+
+/* PROFILE */
+.profile{
+    text-align:center;
+}
+.profile img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    padding:4px;
+    background:linear-gradient(135deg,#f5c400,#ffef9f);
+    object-fit:cover;
+    display:block;
+    margin:auto;
+}
+.name{
+    margin-top:16px;
+    font-size:27px;
+    font-weight:700;
+    background:linear-gradient(90deg,#f5c400,#fff2b0);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+.crowns{
+    display:flex;
+    justify-content:space-between;
+    padding:0 42px;
+    margin-top:-12px;
+}
+.crowns span{
+    font-size:22px;
+    color:#f5c400;
+}
+.trust{
+    margin-top:8px;
+    font-size:14px;
+    color:#d9d9d9;
+}
+.trust span{
+    color:#2ecc71;
+    font-weight:700;
+}
+
+/* LIVE MEMBER COUNTER */
+.counter{
+    margin:16px 0;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    padding:12px;
+    border-radius:14px;
+    text-align:center;
+}
+.counter b{
+    color:#2ecc71;
+    font-size:20px;
+}
+
+/* BADGES */
+.badges{
+    display:flex;
+    gap:12px;
+    justify-content:center;
+    margin:18px 0;
+}
+.badge{
+    background:rgba(255,255,255,0.06);
+    padding:9px 16px;
+    border-radius:14px;
+    font-size:13px;
+}
+
+/* HEARTBEAT */
+@keyframes heartbeat{
+    0%{transform:scale(1);}
+    20%{transform:scale(1.06);}
+    40%{transform:scale(1);}
+    60%{transform:scale(1.06);}
+    100%{transform:scale(1);}
+}
+
+/* TELEGRAM BUTTON */
+.telegram-btn{
+    margin:26px 0;
+}
+.telegram-btn a{
+    display:block;
+    background:linear-gradient(90deg,#007bff,#00c6ff);
+    padding:17px;
+    text-align:center;
+    border-radius:32px;
+    font-size:18px;
+    font-weight:700;
+    color:#fff;
+    text-decoration:none;
+    box-shadow:0 0 25px rgba(0,153,255,0.8);
+    position:relative;
+    overflow:hidden;
+    animation:heartbeat 2.2s infinite;
+}
+
+/* PLUS EFFECT */
+.plus{
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:#00c6ff;
+    color:#fff;
+    font-size:22px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 0 15px rgba(0,198,255,0.9);
+}
+.plus::after{
+    content:"";
+    position:absolute;
+    inset:-6px;
+    border-radius:50%;
+    border:2px solid rgba(0,198,255,0.7);
+    animation:pulse 1.6s infinite;
+}
+@keyframes pulse{
+    0%{transform:scale(0.7);opacity:1;}
+    100%{transform:scale(1.4);opacity:0;}
+}
+
+/* FEATURES */
+.features{
+    margin-top:20px;
+}
+.feature{
+    background:rgba(255,255,255,0.05);
+    padding:15px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:14px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+.feature span{
+    color:#2ecc71;
+    font-size:19px;
+}
+
+.footer{
+    text-align:center;
+    margin-top:18px;
+    font-size:15px;
+    font-weight:600;
+    background:linear-gradient(90deg,#00f2fe,#4facfe);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+</style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2011840923063350');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2011840923063350&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+
+<div class="wrapper">
+<div class="container">
+
+    <div class="profile">
+        <!-- LOGO -->
+        <img src="logo.png" alt="Logo">
+
+        <div class="crowns">
+            <span>👑</span>
+            <span>👑</span>
+        </div>
+
+        <div class="name">DEEPAK WADHWA™</div>
+        <div class="trust"><span>✔</span> Trusted learning community</div>
+    </div>
+
+    <div class="counter">
+        👥 Active Members: <b id="memberCount">12,480</b>
+    </div>
+
+    <div class="badges">
+        <div class="badge">24/7 Updates</div>
+        <div class="badge">Free to Join</div>
+    </div>
+
+    <div class="telegram-btn">
+        <a href="https://t.me/+IV0I0Y8KP8pjMzM1" target="_blank">
+            🚀 Join on Telegram
+            <div class="plus">+</div>
+        </a>
+    </div>
+
+    <div class="features">
+        <div class="feature"><span>✔</span> Market Insights & Discussions</div>
+        <div class="feature"><span>✔</span> Learn with Experts</div>
+        <div class="feature"><span>✔</span> Practical Strategies</div>
+    </div>
+
+    <div class="footer">
+        ⚡ Stay Ahead with Smart Learning
+    </div>
+
+</div>
+</div>
+
+<script>
+let count = 12480;
+setInterval(()=>{
+    count += Math.floor(Math.random()*3);
+    document.getElementById("memberCount").innerText = count.toLocaleString();
+},3000);
+</script>
+
+</body>
+</html>
+
 
