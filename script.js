@@ -1,0 +1,1 @@
+function buy(p,a){const phone='919123456789';location.href='https://wa.me/'+phone+'?text='+encodeURIComponent('Hello, I want to buy '+p+' Plan (₹'+a+')');}
