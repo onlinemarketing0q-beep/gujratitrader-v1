@@ -1,1 +1,251 @@
+/* =========================
+   GOOGLE FONT
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#070707;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg-animation{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at top,#d4af37 0%,transparent 30%),
+        radial-gradient(circle at bottom,#111 0%,#000 70%);
+    z-index:-2;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,215,0,.15);
+    z-index:999;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:#FFD54A;
+    letter-spacing:2px;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#FFD54A;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+    padding:120px 8%;
+}
+
+.hero h1{
+    font-size:58px;
+    line-height:70px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#ccc;
+    font-size:18px;
+    margin-bottom:35px;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+    display:flex;
+    gap:20px;
+}
+
+.gold-btn{
+    text-decoration:none;
+    padding:16px 36px;
+    border-radius:50px;
+    color:#000;
+    background:linear-gradient(45deg,#FFD54A,#FFB300);
+    font-weight:700;
+    transition:.4s;
+    box-shadow:0 0 35px rgba(255,215,0,.35);
+}
+
+.gold-btn:hover{
+    transform:translateY(-4px);
+}
+
+.outline-btn{
+    text-decoration:none;
+    padding:16px 36px;
+    border-radius:50px;
+    border:2px solid #FFD54A;
+    color:#FFD54A;
+    transition:.4s;
+}
+
+.outline-btn:hover{
+    background:#FFD54A;
+    color:#000;
+}
+
+/* =========================
+   COUNTERS
+========================= */
+
+.counter{
+    display:flex;
+    gap:35px;
+    margin-top:45px;
+}
+
+.counter div{
+    text-align:center;
+}
+
+.counter h2{
+    color:#FFD54A;
+    font-size:34px;
+}
+
+.counter span{
+    color:#bbb;
+}
+
+/* =========================
+   HERO IMAGE
+========================= */
+
+.hero-right img{
+    width:100%;
+    border-radius:25px;
+    box-shadow:0 0 40px rgba(255,215,0,.20);
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.title{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:60px;
+    color:#FFD54A;
+}
+
+/* =========================
+   PLAN CARDS
+========================= */
+
+#plans{
+    padding:80px 8%;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,215,0,.18);
+    border-radius:25px;
+    padding:35px;
+    transition:.35s;
+    text-align:center;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 20px 40px rgba(255,215,0,.20);
+}
+
+.card h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.card h1{
+    color:#FFD54A;
+    margin-bottom:20px;
+}
+
+.card ul{
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.card ul li{
+    padding:8px 0;
+    color:#ddd;
+}
+
+.card button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:700;
+    background:linear-gradient(45deg,#FFD54A,#FFB300);
+}
