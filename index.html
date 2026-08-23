@@ -1,153 +1,343 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gu">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-<title>Gujarati Trader</title>
-
-<!-- GOOGLE FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-
-<!-- FONT AWESOME -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071225">
+<title>Gujrati Trader™ | Stock Market Community</title>
 
 <style>
-
-/* RESET */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  font-family:'Inter', sans-serif;
-  background: radial-gradient(circle at top, #0a0a0a, #000);
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   color:#fff;
-  text-align:center;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(0,183,255,.18),transparent 25%),
+    radial-gradient(circle at 12% 65%,rgba(0,255,175,.10),transparent 24%),
+    radial-gradient(circle at 88% 62%,rgba(152,70,255,.14),transparent 27%),
+    linear-gradient(145deg,#020a18,#07172d 48%,#09071d);
+  min-height:100vh;
   overflow-x:hidden;
 }
-
-/* BACKGROUND GLOW */
-.bg-glow{
-  position:fixed;
-  width:500px;
-  height:500px;
-  background:radial-gradient(circle, rgba(212,175,55,0.15), transparent);
-  top:-120px;
-  left:50%;
-  transform:translateX(-50%);
-  filter:blur(120px);
-  z-index:-1;
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;opacity:.55;
+  background-image:
+    radial-gradient(circle at 12% 22%,#08bfff 0 1px,transparent 2px),
+    radial-gradient(circle at 82% 18%,#00d8ff 0 1px,transparent 2px),
+    radial-gradient(circle at 68% 44%,#11b7ff 0 1px,transparent 2px),
+    radial-gradient(circle at 22% 65%,#00d9ff 0 1px,transparent 2px),
+    radial-gradient(circle at 88% 78%,#8a55ff 0 1px,transparent 2px);
+  background-size:330px 300px,430px 360px,520px 420px,460px 390px,600px 500px;
+}
+.wrapper{
+  width:min(100%,760px);margin:auto;position:relative;z-index:1;padding-bottom:45px;
+}
+.wrapper:before{
+  content:"";position:absolute;left:7%;right:7%;top:92px;height:1px;
+  background:linear-gradient(90deg,transparent,#16c9ff,transparent);
+  opacity:.35;
 }
 
-/* HERO */
-.hero{
-  padding:70px 20px 40px;
+/* Top market ticker */
+.ticker{
+  height:58px;display:flex;align-items:center;gap:42px;overflow:hidden;
+  padding:0 28px;white-space:nowrap;
+  background:rgba(3,16,38,.92);
+  border-bottom:1px solid rgba(255,255,255,.07);
+  box-shadow:0 5px 25px rgba(0,0,0,.2);
 }
+.ticker span{font-size:16px;font-weight:700;color:#6f7890;letter-spacing:.4px}
+.ticker b{color:#00f19b;font-size:16px}
+.ticker .down{color:#ff6677}
 
-/* LOGO */
-.hero img{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  border:2px solid rgba(212,175,55,0.5);
+
+/* Main hero */
+.hero{text-align:center;padding:48px 22px 24px}
+.logo-wrap{
+  width:214px;height:214px;margin:0 auto 26px;position:relative;
+  display:grid;place-items:center;border-radius:50%;
+  background:linear-gradient(145deg,#ffb72b 0 47%,#10c56b 73%,#0d182c 74%);
   box-shadow:
-    0 0 25px rgba(212,175,55,0.3),
-    inset 0 0 20px rgba(255,255,255,0.05);
-  margin-bottom:20px;
+  0 0 10px rgba(255,190,45,.95),
+  0 0 28px rgba(255,174,35,.50),
+  0 0 55px rgba(0,213,255,.22),
+  0 0 80px rgba(0,255,149,.12);
+  padding:12px;
+  animation:pulse 3s ease-in-out infinite;
+}
+.logo-wrap:before{
+  content:"";position:absolute;inset:-5px;border-radius:50%;
+  border:2px solid rgba(255,188,43,.28);
+}
+.logo{
+  width:100%;height:100%;border-radius:50%;object-fit:cover;
+  background:#fff;border:5px solid #071225;
+}
+.live{
+  position:absolute;right:-8px;bottom:8px;
+  background:linear-gradient(135deg,#ff3b47,#ff6571);
+  border:3px solid #071225;border-radius:25px;
+  padding:9px 16px;font-weight:900;font-size:14px;
+  box-shadow:0 0 18px rgba(255,55,75,.45);
+}
+.live i{display:inline-block;width:8px;height:8px;background:#fff;border-radius:50%;margin-right:6px}
+
+.brand{
+  font-size:28px;font-weight:900;letter-spacing:-.5px;
+  background:linear-gradient(90deg,#ffc21f,#fff,#ff9c72);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.verified{
+  display:inline-grid;place-items:center;width:27px;height:27px;
+  border-radius:50%;background:#11aeea;color:#fff;font-size:15px;
+  margin-left:7px;vertical-align:middle;box-shadow:0 0 18px rgba(17,174,234,.35)
+}
+h1{
+  margin-top:20px;font-size:43px;line-height:1.05;font-weight:950;
+  letter-spacing:-1.8px;
+  text-shadow:0 7px 28px rgba(255,255,255,.13);
+}
+.sub{
+  margin:22px auto 0;max-width:600px;color:#737b91;
+  font-size:18px;letter-spacing:.3px;
 }
 
-/* NAME */
-.trader-name{
-  font-family:'Playfair Display', serif;
-  font-size:30px;
-  font-weight:700;
-  margin-bottom:18px;
-  color:#d4af37;
-  letter-spacing:1px;
+/* Stats */
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  margin:34px auto 28px;max-width:650px;
 }
-
-/* HEADLINE */
-.hero h1{
-  font-family:'Playfair Display', serif;
-  font-size:34px;
-  font-weight:700;
-  margin-bottom:10px;
+.stat{
+  padding:18px 8px;border-radius:19px;
+  background:
+    linear-gradient(145deg,rgba(21,43,72,.72),rgba(13,10,39,.82));
+  border:1px solid rgba(101,210,255,.13);
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.07),
+    0 12px 30px rgba(0,0,0,.22),
+    0 0 24px rgba(0,157,255,.05);
+  backdrop-filter:blur(14px);
 }
+.icon{font-size:22px;margin-bottom:7px}
+.stat strong{display:block;font-size:25px;line-height:1.1}
+.stat small{display:block;margin-top:7px;color:#71788a;font-size:12px;font-weight:800;letter-spacing:1.3px}
 
-.hero p{
-  font-size:15px;
-  color:#aaa;
-  letter-spacing:0.5px;
-}
-
-/* CTA BUTTON */
+/* CTA */
 .cta{
-  display:inline-block;
-  width:100%;
-  max-width:320px;
-  padding:16px;
-  margin:30px auto;
-  font-size:16px;
-  font-weight:600;
-  border-radius:50px;
-  background: linear-gradient(135deg,#d4af37,#f5d77a);
-  color:#000;
-  text-decoration:none;
-  transition:0.3s;
-  box-shadow:0 10px 40px rgba(212,175,55,0.3);
+  width:min(100%,560px);height:82px;border:0;border-radius:34px;
+  background:
+    linear-gradient(105deg,#ff242f 0%,#ff4856 45%,#ff7a73 100%);
+  color:#fff;font-size:24px;font-weight:950;cursor:pointer;
+  border:1px solid rgba(255,255,255,.24);
+  position:relative;overflow:hidden;
+  box-shadow:
+    0 12px 30px rgba(255,43,55,.34),
+    0 0 18px rgba(255,56,70,.62),
+    0 0 42px rgba(255,56,70,.28),
+    inset 0 1px rgba(255,255,255,.35);
+  transition:.25s transform,.25s box-shadow;
 }
-
+.cta:before{
+  content:"";position:absolute;top:-60%;left:-45%;width:35%;height:220%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  transform:rotate(20deg);animation:shine 3.2s ease-in-out infinite;
+}
 .cta:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 30px rgba(212,175,55,0.7);
+  transform:translateY(-4px) scale(1.015);
+  box-shadow:
+    0 18px 45px rgba(255,43,55,.45),
+    0 0 25px rgba(255,56,70,.85),
+    0 0 65px rgba(255,56,70,.42),
+    inset 0 1px rgba(255,255,255,.42);
 }
+.cta:active{transform:translateY(-1px) scale(.99)}
+.cta .tg{position:relative;z-index:2}
+.cta{animation:buttonGlow 2.2s ease-in-out infinite}
+.tg{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#fff;color:#ef414b;margin-right:10px;font-size:22px}
 
-/* INFO SECTION */
-.info{
-  padding:30px 20px;
+/* Sections */
+.section{padding:58px 24px 0}
+.kicker{
+  color:#7b8498;font-size:16px;font-weight:900;letter-spacing:2px;margin-bottom:22px;
 }
-
-/* CARD */
 .card{
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(15px);
-  border-radius:20px;
-  padding:25px;
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 0 40px rgba(0,0,0,0.6);
+  border-radius:28px;padding:25px;
+  background:
+    linear-gradient(145deg,rgba(12,34,54,.78),rgba(20,10,48,.76));
+  border:1px solid rgba(100,211,255,.12);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.25),
+    inset 0 1px rgba(255,255,255,.045),
+    0 0 35px rgba(0,140,255,.05);
+  backdrop-filter:blur(16px);
+}
+.feature{display:flex;gap:17px;align-items:flex-start;padding:16px 0}
+.feature+.feature{border-top:1px solid rgba(255,255,255,.06)}
+.fi{
+  width:52px;height:52px;flex:0 0 52px;border-radius:16px;
+  display:grid;place-items:center;background:rgba(0,218,154,.1);
+  color:#00e99b;font-size:23px;border:1px solid rgba(0,233,155,.12)
+}
+.feature h3{font-size:18px;margin-bottom:5px}
+.feature p{color:#798197;font-size:14px;line-height:1.55}
+
+/* Disclaimer */
+.disclaimer{
+  margin:28px 24px 0;padding:17px 19px;border-radius:18px;
+  color:#737b8d;background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.06);font-size:12px;line-height:1.6;
+}
+.footer{text-align:center;color:#555e73;font-size:12px;padding:28px 20px}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);filter:brightness(1)}
+  50%{transform:scale(1.025);filter:brightness(1.08)}
+}
+@keyframes buttonGlow{
+  0%,100%{filter:brightness(1);box-shadow:0 12px 30px rgba(255,43,55,.34),0 0 18px rgba(255,56,70,.62),0 0 42px rgba(255,56,70,.28),inset 0 1px rgba(255,255,255,.35)}
+  50%{filter:brightness(1.08);box-shadow:0 15px 35px rgba(255,43,55,.42),0 0 28px rgba(255,56,70,.88),0 0 70px rgba(255,56,70,.38),inset 0 1px rgba(255,255,255,.42)}
+}
+@keyframes shine{
+  0%,45%{left:-55%}
+  70%,100%{left:125%}
+}
+@keyframes ambient{
+  0%,100%{opacity:.65;transform:translate(-50%,-50%) scale(1)}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}
 }
 
-/* POINT */
-.point{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  margin:16px 0;
+
+.market-section{padding:45px 24px 0}
+.market-card{
+  position:relative;overflow:hidden;border-radius:28px;padding:22px;
+  background:linear-gradient(145deg,rgba(10,30,49,.88),rgba(19,10,45,.86));
+  border:1px solid rgba(72,193,255,.14);
+  box-shadow:0 20px 55px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.05);
+  backdrop-filter:blur(16px);
+}
+.market-card:after{
+  content:"";position:absolute;inset:auto -30% -65% -30%;height:180px;
+  background:radial-gradient(circle,rgba(0,214,160,.10),transparent 65%);
+  pointer-events:none;
+}
+.market-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.market-label{font-size:13px;font-weight:900;letter-spacing:1.4px;color:#dce5f4}
+.live-dot{
+  display:inline-block;width:8px;height:8px;border-radius:50%;background:#00e39c;
+  box-shadow:0 0 10px #00e39c;margin-right:8px;animation:livePulse 1.4s infinite
+}
+.market-time{font-size:10px;font-weight:900;color:#68758b;letter-spacing:1.4px}
+.chart-wrap{padding:16px 10px 8px;border-radius:20px;background:rgba(2,12,27,.56);border:1px solid rgba(255,255,255,.055)}
+.chart-top{display:flex;justify-content:space-between;color:#77859b;font-size:12px;font-weight:800;margin:0 4px 12px}
+.chart-top strong{color:#00dca0}
+.fake-chart{height:210px;position:relative;overflow:hidden}
+.grid-line{position:absolute;left:0;right:0;height:1px;background:rgba(255,255,255,.055)}
+.g1{top:20%}.g2{top:40%}.g3{top:60%}.g4{top:80%}
+.candles i{
+  position:absolute;width:8px;min-height:14px;border-radius:2px;
+  background:linear-gradient(#24f0ad,#00a878);
+  box-shadow:0 0 7px rgba(0,231,161,.22)
+}
+.candles i:before,.candles i:after{
+  content:"";position:absolute;left:3px;width:2px;background:currentColor;opacity:.8
+}
+.candles i:before{height:9px;top:-9px}.candles i:after{height:8px;bottom:-8px}
+.candles i.red{background:linear-gradient(#ff6873,#d92d45);color:#ff5260;box-shadow:none}
+.trend-line{position:absolute;inset:0;width:100%;height:100%;opacity:.72;filter:drop-shadow(0 0 5px rgba(0,220,170,.4))}
+.chart-axis{display:flex;justify-content:space-between;margin-top:5px;color:#4e5b70;font-size:9px}
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:13px}
+.market-mini{
+  padding:13px 10px;border-radius:15px;background:rgba(255,255,255,.025);
+  border:1px solid rgba(255,255,255,.055)
+}
+.market-mini span{display:block;color:#68758a;font-size:9px;font-weight:800;letter-spacing:1px}
+.market-mini strong{display:block;margin-top:7px;font-size:12px;color:#dfe8f5}
+.market-mini .positive{color:#00e39c}.market-mini .warning{color:#ffc857}
+.insight-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:13px}
+.insight{
+  display:flex;gap:10px;align-items:center;padding:14px 12px;border-radius:17px;
+  background:rgba(9,25,43,.62);border:1px solid rgba(255,255,255,.06)
+}
+.insight-icon{
+  width:35px;height:35px;display:grid;place-items:center;border-radius:11px;
+  background:rgba(0,224,158,.10);color:#00e3a0;font-size:18px
+}
+.insight-icon.gold{background:rgba(255,193,55,.10);color:#ffc43d}
+.insight-icon.blue{background:rgba(40,180,255,.10);color:#2bc7ff}
+.insight b{display:block;font-size:11px;color:#e7edf8}
+.insight small{display:block;margin-top:3px;color:#69768b;font-size:8px;line-height:1.3}
+@keyframes livePulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.72)}}
+
+
+.market-tools{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px
+}
+.tool-card{
+  position:relative;padding:16px 14px;border-radius:19px;
+  background:linear-gradient(145deg,rgba(13,35,55,.72),rgba(22,11,43,.72));
+  border:1px solid rgba(255,255,255,.06);overflow:hidden
+}
+.tool-icon{
+  width:34px;height:34px;display:grid;place-items:center;border-radius:10px;
+  background:rgba(0,225,160,.10);color:#00e3a0;font-weight:900;margin-bottom:11px
+}
+.tool-icon.blue{background:rgba(43,193,255,.10);color:#36c9ff}
+.tool-icon.gold{background:rgba(255,193,55,.10);color:#ffc43d}
+.tool-card span{
+  display:block;color:#69768b;font-size:8px;font-weight:900;letter-spacing:1px
+}
+.tool-card strong{
+  display:block;color:#e7edf8;font-size:11px;margin-top:5px;white-space:nowrap
+}
+.tool-card:first-child strong{color:#00e3a0}
+.meter{
+  height:4px;margin-top:14px;border-radius:10px;background:rgba(255,255,255,.06);overflow:hidden
+}
+.meter i{
+  display:block;height:100%;border-radius:10px;background:linear-gradient(90deg,#00a87c,#00e3a0);
+  box-shadow:0 0 8px rgba(0,227,160,.45)
+}
+.blue-meter i{background:linear-gradient(90deg,#168dca,#36c9ff);box-shadow:0 0 8px rgba(54,201,255,.45)}
+.levels{
+  display:flex;flex-direction:column;gap:5px;margin-top:11px;font-size:8px
+}
+.levels b,.levels em{
+  padding:4px 6px;border-radius:6px;font-style:normal
+}
+.levels b{background:rgba(255,80,100,.07);color:#ff7884}
+.levels em{background:rgba(255,193,55,.08);color:#ffc43d}
+.levels b:last-child{background:rgba(0,225,160,.07);color:#00e3a0}
+@media(max-width:600px){
+  .ticker{height:52px;padding:0 22px;gap:34px}
+  .ticker span,.ticker b{font-size:14px}
+  .hero{padding:42px 18px 20px}
+  .logo-wrap{width:190px;height:190px}
+  .brand{font-size:23px}
+  h1{font-size:39px}
+  .sub{font-size:16px}
+  .stats{gap:8px;margin-top:28px}
+  .stat{padding:16px 4px}
+  .stat strong{font-size:22px}
+  .stat small{font-size:10px}
+  .cta{height:76px;font-size:20px;border-radius:30px}
+  .section{padding-left:18px;padding-right:18px}
+  .market-section{padding-left:18px;padding-right:18px}
+  .market-grid,.insight-row,.market-tools{grid-template-columns:1fr}
+  .fake-chart{height:185px}
+  .disclaimer{margin-left:18px;margin-right:18px}
 }
 
-.point i{
-  color:#d4af37;
-  font-size:18px;
+@media(max-width:390px){
+  h1{font-size:34px}
+  .brand{font-size:20px}
+  .logo-wrap{width:172px;height:172px}
+  .stats{grid-template-columns:1fr 1fr 1fr}
+  .stat strong{font-size:19px}
 }
-
-.point span{
-  font-size:15px;
-  text-align:left;
-  color:#ddd;
-}
-
-/* FOOTER */
-.footer{
-  padding:25px 10px;
-  font-size:12px;
-  color:#777;
-}
-
 </style>
-<!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -157,46 +347,239 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1614073800275801');
+fbq('init', '1369733278471498');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1614073800275801&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1369733278471498&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 </head>
 
 <body>
+<div class="wrapper">
 
-<div class="bg-glow"></div>
+  <main class="hero">
+    <div class="logo-wrap">
+      <img class="logo" src="logo.png" alt="Gujarati Trader logo">
+      <div class="live"><i></i>LIVE</div>
+    </div>
 
-<section class="hero">
+    <div class="brand">
+      ગુજરાતી વેપારી GUJRATI TRADER<span class="verified">✓</span>
+    </div>
 
-  <img src="logo.jpg">
+    <h1>India's #1<br>Stock Market<br>Community</h1>
 
-  <div class="trader-name">
-    ગુજરાતી TRADER
+    <p class="sub">Free Signals • Daily Analysis • Smart Risk Management</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="icon">👥</div>
+        <strong>50K+</strong>
+        <small>MEMBERS</small>
+      </div>
+      <div class="stat">
+        <div class="icon">🎯</div>
+        <strong>90%</strong>
+        <small>WIN RATE</small>
+      </div>
+      <div class="stat">
+        <div class="icon">★</div>
+        <strong>4.9★</strong>
+        <small>RATING</small>
+      </div>
+    </div>
+
+    <button class="cta" onclick="joinTelegram()">
+      <span class="tg">➤</span> JOIN FREE TELEGRAM
+    </button>
+  </main>
+
+
+  <section class="market-section">
+    <div class="kicker">◈ &nbsp; MARKET INSIGHTS</div>
+
+    <div class="market-card">
+      <div class="market-head">
+        <div>
+          <span class="live-dot"></span>
+          <span class="market-label">MARKET OVERVIEW</span>
+        </div>
+        <span class="market-time">LIVE VIEW</span>
+      </div>
+
+      <div class="chart-wrap">
+        <div class="chart-top">
+          <span>NIFTY 50</span>
+          <strong>Market Trend</strong>
+        </div>
+
+        <div class="fake-chart">
+          <div class="grid-line g1"></div>
+          <div class="grid-line g2"></div>
+          <div class="grid-line g3"></div>
+          <div class="grid-line g4"></div>
+
+          <div class="candles">
+            <i style="height:28px;left:4%;bottom:34px"></i>
+            <i class="red" style="height:42px;left:10%;bottom:48px"></i>
+            <i style="height:55px;left:16%;bottom:45px"></i>
+            <i style="height:34px;left:22%;bottom:67px"></i>
+            <i style="height:64px;left:28%;bottom:58px"></i>
+            <i class="red" style="height:39px;left:34%;bottom:83px"></i>
+            <i style="height:72px;left:40%;bottom:76px"></i>
+            <i style="height:48px;left:46%;bottom:101px"></i>
+            <i style="height:79px;left:52%;bottom:94px"></i>
+            <i class="red" style="height:43px;left:58%;bottom:118px"></i>
+            <i style="height:68px;left:64%;bottom:108px"></i>
+            <i style="height:86px;left:70%;bottom:105px"></i>
+            <i style="height:58px;left:76%;bottom:133px"></i>
+            <i class="red" style="height:37px;left:82%;bottom:151px"></i>
+            <i style="height:73px;left:88%;bottom:141px"></i>
+          </div>
+
+          <svg class="trend-line" viewBox="0 0 600 210" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="lineGlow" x1="0" x2="1">
+                <stop offset="0%" stop-color="#00d9a0"/>
+                <stop offset="100%" stop-color="#20c8ff"/>
+              </linearGradient>
+            </defs>
+            <polyline points="0,174 55,160 105,168 155,132 210,145 265,106 320,120 370,82 425,97 475,58 530,76 600,30"
+              fill="none" stroke="url(#lineGlow)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+        <div class="chart-axis">
+          <span>09:15</span><span>11:00</span><span>13:00</span><span>15:30</span>
+        </div>
+      </div>
+
+      <div class="market-grid">
+        <div class="market-mini">
+          <span>MARKET BIAS</span>
+          <strong class="positive">BULLISH ↗</strong>
+        </div>
+        <div class="market-mini">
+          <span>VOLATILITY</span>
+          <strong>MODERATE</strong>
+        </div>
+        <div class="market-mini">
+          <span>RISK LEVEL</span>
+          <strong class="warning">MANAGE</strong>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="market-tools">
+      <div class="tool-card">
+        <div class="tool-icon">↗</div>
+        <div>
+          <span>MARKET MOMENTUM</span>
+          <strong>POSITIVE</strong>
+        </div>
+        <div class="meter"><i style="width:72%"></i></div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon blue">⌁</div>
+        <div>
+          <span>VOLUME ACTIVITY</span>
+          <strong>ABOVE AVERAGE</strong>
+        </div>
+        <div class="meter blue-meter"><i style="width:64%"></i></div>
+      </div>
+
+      <div class="tool-card">
+        <div class="tool-icon gold">◆</div>
+        <div>
+          <span>KEY LEVELS</span>
+          <strong>SUPPORT • RESISTANCE</strong>
+        </div>
+        <div class="levels">
+          <b>Resistance</b><em>Key Zone</em><b>Support</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-row">
+      <div class="insight">
+        <span class="insight-icon">◉</span>
+        <div><b>Technical Analysis</b><small>Trend • Support • Resistance</small></div>
+      </div>
+      <div class="insight">
+        <span class="insight-icon gold">⌁</span>
+        <div><b>Risk First</b><small>Stop-loss • Position sizing</small></div>
+      </div>
+      <div class="insight">
+        <span class="insight-icon blue">◫</span>
+        <div><b>Market Levels</b><small>Key zones • Breakouts</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="kicker">✣ &nbsp; WHAT YOU GET</div>
+
+    <div class="card">
+      <div class="feature">
+        <div class="fi">↗</div>
+        <div>
+          <h3>Precision Trade Calls</h3>
+          <p>Market-focused trade ideas with clear entry, target and risk-management guidance.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="fi">◉</div>
+        <div>
+          <h3>Daily Market Analysis</h3>
+          <p>Regular analysis covering NIFTY, BANKNIFTY, SENSEX and selected stocks.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="fi">✓</div>
+        <div>
+          <h3>Smart Risk Management</h3>
+          <p>Learn position sizing, stop-loss discipline and responsible trade planning.</p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="fi">⚡</div>
+        <div>
+          <h3>Fast Market Updates</h3>
+          <p>Important market levels and updates delivered directly to the community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="disclaimer">
+    <b>Risk Disclaimer:</b> Stock market and derivatives trading involve market risk.
+    The information on this page is for educational/informational purposes only and
+    should not be treated as guaranteed returns or personalized investment advice.
+    Replace performance, member-count and rating claims with verified figures before publishing.
   </div>
 
-  <h1>India’s Most Trusted Trading Community</h1>
-  <p>Precision Signals • Smart Risk Management • Consistent Growth</p>
+  <footer class="footer">
+    © 2026 Gujrati Trader™ • All Rights Reserved
+  </footer>
 
-  <!-- CTA -->
-  <a href="https://t.me/+PKx00uhpyfU2ZTA9" target="_blank" class="cta subscribe-btn">
-    <i class="fab fa-telegram-plane"></i> Join Telegram
-  </a>
+</div>
 
-</section>
+<script>
+function joinTelegram(){
+  // Replace this URL with your real Telegram channel/group link.
+  const telegramURL = "https://t.me/+PKx00uhpyfU2ZTA9";
+  window.location.href = telegramURL;
+}
+</script>
 
-<section class="info">
-  <div class="card">
 
-    <div class="point">
-      <i class="fa-solid fa-chart-line"></i>
-      <span>Intraday, Options, NIFTY & BANKNIFTY Calls</span>
-    </div>
 
-    <div class="point">
-      <i class="fa-solid fa-bullseye"></i>
-      <span>Accurate Entry, Exit & Target Levels</span>
-    </div>
+</body>
+</html>
